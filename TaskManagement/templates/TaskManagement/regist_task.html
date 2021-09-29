@@ -1,0 +1,178 @@
+{% load static %}
+<script>
+    function action_ichiran(){
+        document.getElementById('form').action = "{% url 'TaskManagement:index' %}";
+        document.getElementById('form').submit();
+    }
+    function action_regist(){
+        document.getElementById('form').action = "{% url 'TaskManagement:regist_task' %}";
+        document.getElementById('form').submit();
+    }
+</script>
+
+<h1>新しいタスクの登録</h1>
+<table border="0"  cellspacing="5" cellpadding="5" bordercolor="#333333">
+    <tr>
+        <td align="left" valign="top">
+
+<!--入力エリア==============================================================================================================-->
+            <form id='form' name='form' action="{% url 'TaskManagement:regist_task' %}" method="post">
+                {% csrf_token %}
+                <table border="0"  cellspacing="5" cellpadding="5" bordercolor="#333333">
+                    <tr>
+                        <td align="left">
+                            <input type="image" 
+                                src="{% static '/images/back_ichiran_01.png' %}"
+                                onmouseover='src="{% static '/images/back_ichiran_02.png' %}"'  
+                                onmouseout='src="{% static '/images/back_ichiran_01.png' %}"'  
+                                value="一覧に戻る" 
+                                onclick="action_ichiran();" 
+                                width="140" height="35"
+                            >
+                        </td>
+                        <td align="right">
+                            <input type="image" 
+                                src="{% static '/images/regist_task_01.png' %}"
+                                onmouseover='src="{% static '/images/regist_task_02.png' %}"'
+                                onmouseout='src="{% static '/images/regist_task_01.png' %}"'  
+                                value="新しい課題を登録" 
+                                onclick="action_regist();" 
+                                width="140" height="35"
+                            >
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan= "2">
+                            課題名：<br>
+                            <input type="text" id="task_title" name="task_title" required minlength="0" maxlength="256" size="141" value="タイトルを入力してください">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            担当者：
+                            <input type="text" id="task_tant" name="task_tant" required minlength="0" maxlength="64" size="50" placeholder="担当者を入力してください">
+                        </td>
+                        <td align="right">
+                            期限：
+                            <input type="date" id="task_kign" name="task_kign"  value="{{today}}">
+                            ステータス：
+                            <input type="text" id="task_status" name="task_status" required minlength="0" maxlength="64" size="20" placeholder="起票">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan= "2">
+                            課題詳細：<br>
+                            <textarea id="task_detail" name="task_detail" cols="128" rows="10" wrap="hard" placeholder="課題の詳細を入力してください"></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan= "2">
+                            課題内容：<br>
+                            <textarea id="task_log" name="task_log" cols="128" rows="67" wrap="hard" placeholder="課題の詳細を入力してください"></textarea>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </td>
+<!--広告エリア==============================================================================================================-->
+<script>
+    function goto_ad_01(){
+        window.open('https://db.netkeiba.com/horse/2002100816/', '_blank'); 
+    }
+    function goto_ad_02(){
+        window.open('https://db.netkeiba.com/horse/2004104258/', '_blank'); 
+    }
+    function goto_ad_03(){
+        window.open('https://db.netkeiba.com/horse/1985104409/', '_blank'); 
+    }
+    function goto_ad_04(){
+        window.open('https://db.netkeiba.com/horse/1993109219/', '_blank'); 
+    }
+    function goto_ad_05(){
+        window.open('https://db.netkeiba.com/horse/1983109008/', '_blank'); 
+    }
+    function goto_ad_06(){
+        window.open('https://db.netkeiba.com/horse/1981107017/', '_blank'); 
+    }
+    function goto_ad_07(){
+        window.open('https://db.netkeiba.com/horse/1996100292/', '_blank'); 
+    }
+    function goto_netkeiba_orfevre(){
+        window.open('https://db.netkeiba.com/horse/2008102636/', '_blank'); 
+    }
+</script>
+        <td align="right" valign="top">
+            <input type="image" 
+                src="{% static '/images/advertisement/deep_01.jpg' %}"
+                onmouseover='src="{% static '/images/advertisement/deep_02.jpg' %}"'  
+                onmouseout='src="{% static '/images/advertisement/deep_03.jpg' %}"'  
+                value="ディープインパクト" 
+                onclick="goto_ad_01();" 
+                width="320" height="180"
+            >
+            <br>
+            <input type="image" 
+                src="{% static '/images/advertisement/vodka_01.jpg' %}"
+                onmouseover='src="{% static '/images/advertisement/vodka_02.jpg' %}"'  
+                onmouseout='src="{% static '/images/advertisement/vodka_03.jpg' %}"'  
+                value="ウォッカ" 
+                onclick="goto_ad_02();" 
+                width="320" height="180"
+            >
+            <br>
+            <input type="image" 
+                src="{% static '/images/advertisement/supercreek_01.jpg' %}"
+                onmouseover='src="{% static '/images/advertisement/supercreek_02.jpg' %}"'  
+                onmouseout='src="{% static '/images/advertisement/supercreek_03.jpg' %}"'  
+                value="スーパークリーク" 
+                onclick="goto_ad_03();" 
+                width="320" height="180"
+            >
+            <br>
+            <input type="image" 
+                src="{% static '/images/advertisement/bubble_01.jpg' %}"
+                onmouseover='src="{% static '/images/advertisement/bubble_02.jpg' %}"'  
+                onmouseout='src="{% static '/images/advertisement/bubble_03.jpg' %}"'   
+                value="バブルガムフェロー" 
+                onclick="goto_ad_04();" 
+                width="320" height="180"
+            >
+            <br>
+            <input type="image" 
+                src="{% static '/images/advertisement/horlicks_01.jpg' %}"
+                onmouseover='src="{% static '/images/advertisement/horlicks_02.jpg' %}"'  
+                onmouseout='src="{% static '/images/advertisement/horlicks_03.jpg' %}"'
+                value="ホーリックス" 
+                onclick="goto_ad_05();" 
+                width="320" height="180"
+            >
+            <br>
+            <input type="image" 
+                src="{% static '/images/advertisement/rudolf_01.jpg' %}"
+                onmouseover='src="{% static '/images/advertisement/rudolf_02.jpg' %}"'  
+                onmouseout='src="{% static '/images/advertisement/rudolf_03.jpg' %}"'  
+                value="シンボリルドルフ" 
+                onclick="goto_ad_06();" 
+                width="320" height="180"
+            >
+            <br>
+            <input type="image" 
+                src="{% static '/images/advertisement/tmopera_01.jpg' %}"
+                onmouseover='src="{% static '/images/advertisement/tmopera_02.jpg' %}"'  
+                onmouseout='src="{% static '/images/advertisement/tmopera_03.jpg' %}"'  
+                value="テイエムオペラオー" 
+                onclick="goto_ad_07();" 
+                width="320" height="180"
+            >
+            <br>
+            <input type="image" 
+                src="{% static '/images/advertisement/orfavre_01.png' %}"
+                onmouseover='src="{% static '/images/advertisement/orfavre_01.png' %}"'  
+                onmouseout='src="{% static '/images/advertisement/orfavre_01.png' %}"'  
+                value="オルフェーブル" 
+                onclick="goto_netkeiba_orfevre();" 
+                width="50" height="2"
+            >
+        </td>
+    </tr>
+</table>

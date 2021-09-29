@@ -1,0 +1,3 @@
+■タスクテーブル
+insert into TaskManagement_task values (1,'タスクタイトル','タスク詳細','担当者','対応履歴','20210927','20210927');
+insert into TaskManagement_task values (2,'タスクタイトル2','タスク詳細2','担当者2','対応履歴2','20210927','20210927');

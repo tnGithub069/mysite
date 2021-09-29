@@ -1,0 +1,79 @@
+{% load static %}
+<script>
+    function action_add_task(){
+        location.href = "{% url 'TaskManagement:goto_regist_task'%}";
+    }
+</script>
+
+<h1>課題一覧</h1>
+{% if latest_question_list %}
+    <ul>
+    {% for question in latest_question_list %}
+        <!--<li><a href="/TaskManagement/{{ question.id }}/">{{ question.question_text }}</a></li>-->
+        <!--<li><a href="{% url 'TaskManagement:detail' question.id %}">{{ question.question_text }}</a></li>-->
+        <li><a href="{% url 'TaskManagement:detail' question.id %}">{{ question.question_text }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p></p>
+{% endif %}
+<br>
+<table width="1520">
+    <tr>
+        <td align="right" > 
+            <input type="image" id = "add_task"
+            src="{% static '/images/add_task_01.png' %}"
+            onmouseover='src="{% static '/images/add_task_02.png' %}"'  
+            onmouseout='src="{% static '/images/add_task_01.png' %}"'  
+            value="タスクを追加" 
+            onclick="action_add_task();" 
+            width="140" height="35"
+        >
+        </td>
+    </tr>
+</table>
+<table border="1"  cellspacing="0" cellpadding="1" bordercolor="#333333">
+    {% if all_task_list %}
+        <thead>
+            <tr bgcolor="#cccccc">
+                <th scope="col">No</th>
+                <th scope="col">起票日</th>
+                <th scope="col">期限</th>
+                <th scope="col">タイトル</th>
+                <th scope="col">担当者</th>
+                <th scope="col">詳細</th>
+                <th scope="col">対応内容</th>
+                <th scope="col">ステータス</th>
+            </tr>
+        </thead>
+        <ul>
+        {% for task in all_task_list %}
+            <tr align="left" valign="top">
+                <td width="10">{{ task.id }}</td>
+                <td width="80">{{ task.task_kihyb | date:"y/m/d" }}</td>
+                <td width="80">{{ task.task_kign | date:"y/m/d" }}</td>
+                <td width="300"><a href="{% url 'TaskManagement:detail_task' task.id %}">{{ task.task_title }}</a></td>
+                <td width="80">{{ task.task_tant }}</td>
+                <td width="500">{{ task.task_detail }}</td>
+                <td width="700">{{ task.task_log }}</td>
+                <td width="100" align="center" valign="middle">{{ task.task_status }}</td>
+            </tr>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>タスクはありません</p>
+    {% endif %}
+    <table width="1520">
+        <tr>
+            <td align="right" > 
+                <input type="image" id = "add_task"
+                src="{% static '/images/add_task_01.png' %}"
+                onmouseover='src="{% static '/images/add_task_02.png' %}"'  
+                onmouseout='src="{% static '/images/add_task_01.png' %}"'  
+                value="タスクを追加" 
+                onclick="action_add_task();" 
+                width="140" height="35"
+            >
+            </td>
+        </tr>
+    </table>
