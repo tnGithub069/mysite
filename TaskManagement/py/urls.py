@@ -31,4 +31,4 @@ urlpatterns = [
     path('update_task/', views.update_task, name='update_task'),
     path('delete_task/', views.delete_task, name='delete_task'),
     #AE 20210928
-] 
+] + static (settings.STATIC_URL, document_root=settings.STATIC_ROOT)

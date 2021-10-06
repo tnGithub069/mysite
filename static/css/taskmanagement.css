@@ -1,0 +1,216 @@
+/*================================================================================================= */
+/* 参考サイト
+    初心者向けCSS（スタイルシート）入門：基本的な書き方を総まとめ！
+    https://saruwakakun.com/html-css/basic/css#section3
+    基礎から学ぶ！HTMLにCSSを適用（読み込み）させる方法【初心者向け】
+    https://techacademy.jp/magazine/9647
+
+------------------------------------------------------------------------------------------------------
+　■使用例
+*/
+/* タイプセレクタ。pタグ全てに適用される */
+/*
+p {
+  color : brown;
+}
+*/
+
+/* idセレクタ。指定idを持つタグに適用される */
+#textBox {
+  font-size : 20px;
+}
+
+/* classセレクタ。class名が一致するタグに適用 */
+.sample-text {
+  background-color : green;
+  color : #fff;  /* 白 */
+}
+
+* {
+  margin:0; padding:0;
+}
+
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family:'Avenir','Helvetica, Neue','Helvetica','Arial';
+}
+
+
+/*-------------------------------------------------------------------------------------------------- */
+#popup{
+  width:30%;
+  line-height:100px;
+  background:#000;
+  padding:0 4%;
+  box-sizing:border-box;
+  display:none;
+  position:fixed;
+  top:50%;
+  left:50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+img{
+  width:100%;
+}
+label{
+  display:block;
+}
+/*ボタンの装飾*/
+label span{
+  display:block;
+  background-color:#01b6ed;
+  color:#fff;
+  width:200px;
+  line-height:40px;
+  border-radius:4px;
+  text-align:center;
+}
+label span:hover{
+  cursor:pointer;
+}
+input[type="checkbox"]{
+  display:none;
+}
+/*checkboxがチェックの状態になったらpopupを表示させる*/
+input[type="checkbox"]:checked + #popup{
+  display:block;
+}
+/*-------------------------------------------------------------------------------------------------- */
+
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family:'Avenir','Helvetica, Neue','Helvetica','Arial';
+}
+
+
+/* モーダルCSS */
+.modalArea {
+  display: none;
+  position: fixed;
+  z-index: 10; /*サイトによってここの数値は調整 */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.modalBg {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(30,30,30,0.9);
+}
+
+.modalWrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform:translate(-50%,-50%);
+  width: 70%;
+  max-width: 500px;
+  padding: 10px 30px;
+  background-color: #fff;
+}
+
+.closeModal {
+  position: absolute;
+  top: 0.5rem;
+  right: 1rem;
+  cursor: pointer;
+}
+
+
+/* 以下ボタンスタイル */
+button {
+  padding: 10px;
+  background-color: #fff;
+  border: 1px solid #282828;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+#openModal {
+  top: 50%;
+  left: 50%;
+}
+/*-------------------------------------------------------------------------------------------------- */
+
+/*================================================================================================= */
+
+/*
+header {
+  width: 100%;
+  padding: 15px 0;
+  margin: 0 auto;
+  text-align: left;
+  color : rgb(21, 17, 77);
+  background-color : rgba(60, 96, 163, 0.2);
+}
+*/
+.headline{
+  font-size: 32px;
+}
+
+/* テーブルヘッダー */
+.table_hedder {
+  background-color : rgba(60, 96, 163, 0.2);
+  border: solid 1px #3333;
+  color : black;  /* 白 */
+}
+
+/* テーブルレイアウト */
+.table_layout {
+  border-collapse: collapse;
+  padding: "0";
+  border: solid 1px #3333;
+  word-break: break-word;
+  /*実線 1px グレー*/
+}
+
+/* 行レイアウト */
+.th_layout {
+  border-collapse: collapse;
+  border: solid 1px #3333;
+  /*実線 1px グレー*/
+}
+
+/* 行レイアウト */
+.tr_layout {
+  border-collapse: collapse;
+  border: solid 1px #3333;
+  /*実線 1px グレー*/
+}
+
+/* セルレイアウト */
+.td_layout {
+  border-collapse: collapse;
+  border: solid 1px #3333;
+  /*実線 1px グレー*/
+}
+
+/* 罫線 */
+.border {
+  color : #3333;/* 薄いグレー */
+}
+
+/* 罫線 */
+.border_white {
+  color : white;/* 白 */
+}
+
+/* メッセージ */
+.message {
+  color : rgba(219, 7, 7, 0.753);/* 赤 */
+}
+
+/* jumbotron */
+header.jumbotron2 {
+  background: url("/static/images/header02.png");
+  background-position: center center;
+  background-size: cover;
+  color: #fff;
+}

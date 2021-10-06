@@ -43,7 +43,10 @@ INSTALLED_APPS = [
     # pollsパッケージの追加
     #AS 20210926
     'polls.apps.PollsConfig',
-    'TaskManagement.apps.TaskManagementConfig',
+    #CS 2021/10/03 フォルダ分け対応
+    #'TaskManagement.apps.TaskManagementConfig',
+    'TaskManagement.py.apps.TaskManagementConfig',
+    #CE 2021/10/03 フォルダ分け対応
     #AE 20210926
 ]
 
@@ -137,9 +140,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 #AS 20210929 画像対応
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, "static"),
-)
+STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"),
+    )
 #AE 20210929 画像対応
 
 # Default primary key field type

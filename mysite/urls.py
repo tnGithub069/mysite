@@ -19,5 +19,7 @@ from django.urls import include, path
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('polls/', include('polls.urls')),
-    path('TaskManagement/', include('TaskManagement.urls')),
+    #CS 2021/10/03 フォルダ分け対応
+    path('TaskManagement/', include('TaskManagement.py.urls')),
+    #CE 2021/10/03 フォルダ分け対応
 ]
