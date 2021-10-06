@@ -1,0 +1,5 @@
+#pythonキャッシュフォルダ
+mysite/__pycache__
+TaskManagement/__pycache__
+#settings.pyファイル
+mysite/settings.py
