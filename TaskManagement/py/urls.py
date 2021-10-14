@@ -24,6 +24,7 @@ urlpatterns = [
     # ex: /TaskManagement/5/olfe/
     path('<str:question_text>/str_olfe/', views.str_olfe, name='str_olfe'),
     #AE 20210926
+    
     #AS 20210928
     path('regist_task/', views.goto_regist_task, name='goto_regist_task'),
     path('registed_task/', views.regist_task, name='regist_task'),

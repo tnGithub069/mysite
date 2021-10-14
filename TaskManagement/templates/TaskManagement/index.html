@@ -58,21 +58,21 @@
                                 <th class="th_layout" scope="col">期限</th>
                                 <th class="th_layout" scope="col">タイトル</th>
                                 <th class="th_layout" scope="col">担当者</th>
-                                <th class="th_layout" scope="col">詳細</th>
-                                <th class="th_layout" scope="col">対応内容</th>
+                            <!--<th class="th_layout" scope="col">詳細</th>-->
+                            <!--<th class="th_layout" scope="col">対応内容</th>-->
                                 <th scope="col">ステータス</th>
                             </tr>
                         </thead>
                         <ul>
                         {% for task in all_task_list %}
                             <tr align="left" valign="top" class="tr_layout">
-                                <td class="td_layout" width="10">{{ task.id }}</td>
+                                <td class="td_layout" width="40">{{ task.id }}</td>
                                 <td class="td_layout" width="80">{{ task.task_kihyb | date:"y/m/d" }}</td>
                                 <td class="td_layout" width="80">{{ task.task_kign | date:"y/m/d" }}</td>
                                 <td class="td_layout" width="300"><a href="{% url 'TaskManagement:detail_task' task.id %}">{{ task.task_title }}</a></td>
                                 <td class="td_layout" width="80">{{ task.task_tant }}</td>
-                                <td class="td_layout" width="500">{{ task.task_detail }}</td>
-                                <td class="td_layout" width="700">{{ task.task_log }}</td>
+                            <!--<td class="td_layout" width="500">{{ task.task_detail }}</td>-->
+                            <!--<td class="td_layout" width="700">{{ task.task_log }}</td>-->
                                 <td class="td_layout" width="100" align="center" valign="middle">{{ task.task_status }}</td>
                             </tr>
                         {% endfor %}

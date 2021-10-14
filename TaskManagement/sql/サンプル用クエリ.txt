@@ -1,19 +1,15 @@
-create table taskmanagement_question (question_id INT,question_text CHAR, pub_date DATETIME )
-create table taskmanagement_choice (Choice_id INT,question_id INT, choice_text CHAR,votes INT)
-
 ■質問テーブル
-insert into TaskManagement_question values (1,'ジャパンカップ2020',current_timestamp);
-insert into TaskManagement_question values (2,'凱旋門賞2021',current_timestamp);
+insert into taskmanagement_question values (1,'ジャパンカップ2020',current_timestamp);
+insert into taskmanagement_question values (2,'凱旋門賞2021',current_timestamp);
 
 ■選択肢テーブル
-insert into TaskManagement_choice values (1,'アーモンドアイ',0,1);
-insert into TaskManagement_choice values (2,'デアリングタクト',0,1);
-insert into TaskManagement_choice values (3,'コントレイル',0,1);
-insert into TaskManagement_choice values (4,'マカヒキ',0,1);
-insert into TaskManagement_choice values (5,'ヨシオ',0,1);
-insert into TaskManagement_choice values (6,'スノーフォール',0,2);
-insert into TaskManagement_choice values (7,'セントマークスバシリシカ',0,2);
-insert into TaskManagement_choice values (8,'ハリケーンレーン',0,2);
-insert into TaskManagement_choice values (9,'ラブ',0,2);
-insert into TaskManagement_choice values (10,'ギベオン',0,2);
-
+insert into taskmanagement_choice values (1,'アーモンドアイ',0,1);
+insert into taskmanagement_choice values (2,'デアリングタクト',0,1);
+insert into taskmanagement_choice values (3,'コントレイル',0,1);
+insert into taskmanagement_choice values (4,'マカヒキ',0,1);
+insert into taskmanagement_choice values (5,'ヨシオ',0,1);
+insert into taskmanagement_choice values (6,'スノーフォール',0,2);
+insert into taskmanagement_choice values (7,'セントマークスバシリシカ',0,2);
+insert into taskmanagement_choice values (8,'ハリケーンレーン',0,2);
+insert into taskmanagement_choice values (9,'ラブ',0,2);
+insert into taskmanagement_choice values (10,'ギベオン',0,2);
