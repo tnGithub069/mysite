@@ -1,4 +1,4 @@
-from . import S001_TaskIchrnshtk,D010_Index_SetDisp
+from . import S001_TaskIchrnshtk,D010_Index_SetDisp,S006_GetKeibaNews
 
 
 #main()メソッドは定型文。正常時、異常時のtemplateをそれぞれ指定する。
@@ -41,6 +41,7 @@ def pre(request,list_msg):
 #flw()は業務処理用メソッド。入力チェックが正常に終了した場合、処理を実施する。サービスを呼び出したりする。
 def flw(request,list_msg):
     flw_errFlg = "0"
-    context = {}
+    list_newsInfo = S006_GetKeibaNews.main(0)
+    context = {"list_newsInfo":list_newsInfo}
     json_flw = {"flw_errFlg":flw_errFlg,"context":context}
     return json_flw

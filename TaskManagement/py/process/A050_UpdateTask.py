@@ -1,6 +1,6 @@
 import datetime
 from . import C010_Const
-from . import S003_SelectTask,S004_UpdateTask
+from . import S003_SelectTask,S004_UpdateTask,S006_GetKeibaNews
 
 
 #main()メソッドは定型文。正常時、異常時のtemplateをそれぞれ指定する。
@@ -65,6 +65,9 @@ def flw(request,list_msg):
     context = {'task': one_task,
                 'hyoji_kigen': hyoji_kigen,
                 }
+    list_newsInfo = S006_GetKeibaNews.main(10)
+    json_newsInfo = {"list_newsInfo":list_newsInfo}
+    context = {**context,**json_newsInfo}
     #検証--------------------------------------------------------------------
     json_msg1={"level":C010_Const.DEBUG,"msg":"更新しました１"}
     json_msg2={"level":C010_Const.INFO,"msg":"更新しました２"}

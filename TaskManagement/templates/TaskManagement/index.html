@@ -1,21 +1,21 @@
 {% extends "TaskManagement/base.html" %}
 {% block head %}
-    {% load static %}
-    <link rel="stylesheet" href="{% static '/css/taskmanagement.css' %}">
-    <script>
-        function action_add_task(){
-            location.href = "{% url 'TaskManagement:goto_regist_task'%}";
-        }
-        function action_goto_detail_task(){
-        }
-    </script>
+{% load static %}
+<link rel="stylesheet" href="{% static '/css/taskmanagement.css' %}">
+<script>
+    function action_add_task() {
+        location.href = "{% url 'TaskManagement:goto_regist_task'%}";
+    }
+    function action_goto_detail_task() {
+    }
+</script>
 {% endblock head %}
 {% block header %}
-    <h1 >課題一覧</h1>
+<h1>課題一覧</h1>
 {% endblock header %}
 {% block content %}
 
-    <!--　旧コード
+<!--　旧コード
     {% if latest_question_list %}
         <ul>
         {% for question in latest_question_list %}
@@ -26,38 +26,46 @@
         <p></p>
     {% endif %}
     -->
-    <br>
-    <!-- メッセージエリアここから -->
-    <div class="container">
-        {% if messages %}
-        <div class="row">
-            {% for message in messages %}
-                <!--位置調整用-->
-            </div>
-            <div class="col-sm-12" >
-                <br><div class="alert alert-info" role="alert">{{ message }}</div>
-            </div>
-                <!--位置調整用-->
-            </div>
-            {% endfor %}
-        </div>
-        {% endif %}
+<br>
+<!-- メッセージエリアここから -->
+<div class="container">
+    {% if messages %}
+    <div class="row">
+        {% for message in messages %}
     </div>
-    <!-- メッセージエリアここまで -->
-    <div class="container">
-        <h6>課題一覧</h6>
-        {% if all_task_list %}
-        <div class="row">
+    <div class="col-sm-12">
+        <br>
+        <div class="alert alert-info" role="alert">{{ message }}</div>
+    </div>
+</div>
+{% endfor %}
+</div>
+{% endif %}
+</div>
+<!-- メッセージエリアここまで -->
+<div class="container">
+    <div class="row">
+        <div class="col-md-1">
+        </div>
+        <div class="col-md-8">
+            <h2>課題一覧</h2>
+        </div>
+        <div class="col-md-3">
+        </div>
+    </div>
+    {% if all_task_list %}
+    <div class="row">
+        <div class="col-md-1">
+        </div>
+        <div class="col-md-8">
             {% for task in all_task_list %}
             <!--　井上からの教え
                 text-decoration-none：テキストの装飾（アンダーバーとか）いろいろなしにできる
-                
-            
-            -->
-            <a class="col-sm-6 text-decoration-none" href = "{% url 'TaskManagement:detail_task' task.id %}" >
+        -->
+            <a class="col-md-8 text-decoration-none" href="{% url 'TaskManagement:detail_task' task.id %}">
                 <div class="card">
                     <div class="card-body text-dark">
-                        課題番号：{{ task.id }} 
+                        課題番号：{{ task.id }}
                         <h5 class="card-title">{{ task.task_title }}</h5>
                         <p class="card-text text-dark">
                             起票日：{{ task.task_kihyb | date:"y/m/d" }}　　
@@ -71,12 +79,28 @@
             </a>
             {% endfor %}
         </div>
-        {% endif %}
+        <div class="col-md-3">
+            <!-- ニュースエリア ------------------------------------------------------------------------------->
+            <div class="">
+                <h5 class="tm_bg_newsAreaTitle">★新着ニュース</h5>
+                {% for json_newsInfo in list_newsInfo %}
+
+                <a class="text-decoration-none text-dark" href="{{json_newsInfo.newsURL}}" target="_blank">
+                    <div class="tm_bg_newsArea">
+                        <p>{{json_newsInfo.newsTitle}}</p>
+                    </div>
+                </a>
+                {% endfor %}
+            </div>
+            <!-- ニュースエリア ------------------------------------------------------------------------------->
+        </div>
     </div>
-    <br>
-    <br>
-    <!-- 旧コード=============================================================================================================== -->
-    <!--
+    {% endif %}
+</div>
+<br>
+<br>
+<!-- 旧コード=============================================================================================================== -->
+<!--
     <table>
         <tr>
             <td align="right" > 
@@ -140,5 +164,5 @@
         </tr>
     </table>
     -->
-    <!-- 旧コード=============================================================================================================== -->
+<!-- 旧コード=============================================================================================================== -->
 {% endblock content %}

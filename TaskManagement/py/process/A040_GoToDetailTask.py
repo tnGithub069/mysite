@@ -1,5 +1,5 @@
 import datetime
-from . import S003_SelectTask
+from . import S003_SelectTask,S006_GetKeibaNews
 
 #main()メソッドは定型文。正常時、異常時のtemplateをそれぞれ指定する。
 def main(request,list_msg,task_id):
@@ -30,6 +30,8 @@ def pre(request,list_msg,task_id):
 def flw(request,list_msg,task_id):
     flw_errFlg = "0"
     #サービスの呼び出し
+    list_newsInfo = S006_GetKeibaNews.main(10)
+    json_newsInfo = {"list_newsInfo":list_newsInfo}
     #表示処理------------------------------------------------------
     json_service = S003_SelectTask.main(task_id)
     one_task = json_service["one_task"]
@@ -38,6 +40,7 @@ def flw(request,list_msg,task_id):
     context = {'task': one_task,
                 'hyoji_kigen': hyoji_kigen,
                 }
+    context = {**context,**json_newsInfo}
     json_flw = {'flw_errFlg':flw_errFlg,'context':context}
     #表示処理------------------------------------------------------
     return json_flw

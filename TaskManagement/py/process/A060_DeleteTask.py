@@ -1,6 +1,6 @@
 import datetime
 from . import C010_Const
-from . import S001_TaskIchrnshtk,S005_DeleteTask_logical
+from . import S001_TaskIchrnshtk,S005_DeleteTask_logical,S006_GetKeibaNews
 
 
 #main()メソッドは定型文。正常時、異常時のtemplateをそれぞれ指定する。
@@ -51,7 +51,10 @@ def flw(request,list_msg):
     json_service_S001 = S001_TaskIchrnshtk.main()
     json_TaskList = json_service_S001["json_TaskList"]
     flw_errFlg = json_service_S001["flg_result"]
+    list_newsInfo = S006_GetKeibaNews.main(0)
+    json_newsInfo = {"list_newsInfo":list_newsInfo}
+    context = {**json_TaskList,**json_newsInfo}
     #実行結果を設定する
-    json_flw = {'flw_errFlg':flw_errFlg,'context':json_TaskList}
+    json_flw = {'flw_errFlg':flw_errFlg,'context':context}
     #表示処理------------------------------------------------------
     return json_flw

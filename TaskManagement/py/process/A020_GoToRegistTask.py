@@ -1,4 +1,5 @@
 import datetime
+from . import S006_GetKeibaNews
 
 #main()メソッドは定型文。正常時、異常時のtemplateをそれぞれ指定する。
 def main(request,list_msg):
@@ -32,7 +33,8 @@ def flw(request,list_msg):
     #表示処理------------------------------------------------------
     today = datetime.datetime.now()
     today = format(today, '%Y-%m-%d')
-    context = {'today':today}
+    list_newsInfo = S006_GetKeibaNews.main(10)
+    context = {'today':today,"list_newsInfo":list_newsInfo}
     json_flw = {'flw_errFlg':flw_errFlg,'context':context}
     #表示処理------------------------------------------------------
     return json_flw
