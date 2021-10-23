@@ -52,10 +52,11 @@
 <div class="container">
     <div class="row gx-3">
         <div class="col-md-1">
+            <!--位置調整用-->
         </div>
         <div class="col-md-8">
             <div class="p-3 mb-2 bg-light text-dark">
-                <h2>新しい課題を追加</h2>
+                <h2>課題詳細</h2>
                 <form id='form' name='form' method="post">{% csrf_token %}
                     <!--ボタン-->
                     <div class="row justify-content-start">
@@ -133,7 +134,7 @@
                         </div>
                         <div class="col-md-2">
                             <button type="button" class="btn btn-muted btn-block" onclick="action_ichiran();">
-                                閉じる
+                                一覧に戻る
                             </button>
                         </div>
                     </div>
@@ -151,11 +152,23 @@
                         allowfullscreen>
                     </iframe>
                 </div>
-                </body>
+                <br>
+            <!-- ニュースエリア ------------------------------------------------------------------------------->
+            <div class="">
+                <h5 class="tm_bg_newsAreaTitle">★新着ニュース</h5>
+                {% for json_newsInfo in list_newsInfo %}
+
+                <a class="text-decoration-none text-dark" href="{{json_newsInfo.newsURL}}" target="_blank">
+                    <div class="tm_bg_newsArea">
+                        <p>{{json_newsInfo.newsTitle}}</p>
+                    </div>
+                </a>
+                {% endfor %}
+            </div>
+            <!-- ニュースエリア ------------------------------------------------------------------------------->
             </div>
         </div>
     </div>
-
     <br>
 </div>
 <!--入力エリア==============================================================================================================-->

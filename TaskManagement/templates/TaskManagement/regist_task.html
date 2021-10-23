@@ -105,7 +105,7 @@
                         </div>
                         <div class="col-md-2">
                             <button type="button" class="btn btn-muted btn-block" onclick="action_ichiran();">
-                                閉じる
+                                一覧に戻る
                             </button>
                         </div>
                     </div>
@@ -123,7 +123,20 @@
                         allowfullscreen>
                     </iframe>
                 </div>
-                </body>
+                <br>
+                <!-- ニュースエリア ------------------------------------------------------------------------------->
+                <div class="">
+                    <h5 class="tm_bg_newsAreaTitle">★新着ニュース</h5>
+                    {% for json_newsInfo in list_newsInfo %}
+
+                    <a class="text-decoration-none text-dark" href="{{json_newsInfo.newsURL}}" target="_blank">
+                        <div class="tm_bg_newsArea">
+                            <p>{{json_newsInfo.newsTitle}}</p>
+                        </div>
+                    </a>
+                    {% endfor %}
+                </div>
+                <!-- ニュースエリア ------------------------------------------------------------------------------->
             </div>
         </div>
     </div>

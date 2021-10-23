@@ -16,7 +16,8 @@ from .process import (
     A030_RegistTask,
     A040_GoToDetailTask,
     A050_UpdateTask,
-    A060_DeleteTask
+    A060_DeleteTask,
+    S006_GetKeibaNews
 )
 from .process import C010_Const
 
@@ -150,9 +151,10 @@ def delete_task(request):
 
     #テスト01
 def test01(request):
+    list_newsInfo = S006_GetKeibaNews.main(0)
     #メッセージリストを宣言
     template = "TaskManagement/test01.html"
-    context = {}
+    context = {"list_newsInfo":list_newsInfo}
     #返却
     return render(request, template, context) 
 

@@ -240,3 +240,23 @@ header.jumbotron2 {
   margin-top: 0;
   margin-bottom:0;
 }
+.one_margen {
+  margin-top: 1;
+  margin-bottom:1;
+}
+
+.tm_bg_newsArea{
+  background-image: url("/static/images/jra.png");
+  color:rgb(5, 58, 5);
+  background-color:rgba(255,255,255,0.8);
+  background-blend-mode:lighten;
+}
+
+.tm_bg_newsAreaTitle{
+  color:rgb(255, 255, 255);
+  background-color:rgb(75, 117, 75);
+}
+
+.tm_bg_newsInfo{
+  background-color:rgb(225, 243, 225);
+}
