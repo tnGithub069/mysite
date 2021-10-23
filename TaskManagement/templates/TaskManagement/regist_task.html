@@ -4,37 +4,135 @@
 
 {% block head %}
 <script>
-    function action_ichiran(){
+    function action_ichiran() {
         document.getElementById('form').action = "{% url 'TaskManagement:index' %}";
         document.getElementById('form').submit();
     }
-    function action_regist(){
+    function action_regist() {
         document.getElementById('form').action = "{% url 'TaskManagement:regist_task' %}";
         document.getElementById('form').submit();
     }
 </script>
 {% endblock head %}
 {% block header %}
-    <h1>新しいタスクの登録</h1>
+<h1>新しい課題の登録</h1>
 {% endblock header %}
 {% block content %}
-    <br>
-        <!-- メッセージエリアここから -->
-        {% if messages %}
-            <div  class="message">
-                {% for message in messages %}
-                    <br>{{ message }}
-                {% endfor %}
-            </div>
-        {% endif %}
-        <!-- メッセージエリアここまで -->
-    <table border="0"  cellspacing="5" cellpadding="5" bordercolor="#333333">
-        <tr>
-            <td align="left" valign="top">
+<br>
+<!-- メッセージエリアここから -->
+{% if messages %}
+<div class="message">
+    {% for message in messages %}
+    <br>{{ message }}
+    {% endfor %}
+</div>
+{% endif %}
+<!-- メッセージエリアここまで -->
+<!-- <table border="0"  cellspacing="5" cellpadding="5" bordercolor="#333333"> -->
+<!-- <tr> -->
+<!-- <td align="left" valign="top"> -->
 
-    <!--入力エリア==============================================================================================================-->
-                <form id='form' name='form' action="{% url 'TaskManagement:regist_task' %}" method="post">
-                    {% csrf_token %}
+<!--入力エリア==============================================================================================================-->
+<div class="container">
+    <div class="row gx-3">
+        <div class="col-md-1">
+        </div>
+        <div class="col-md-8">
+            <div class="p-3 mb-2 bg-light text-dark">
+                <h2>新しい課題を追加</h2>
+                <form id='form' name='form' method="post">{% csrf_token %}
+                    <!--ボタン-->
+                    <div class="row justify-content-start">
+                        <div class="col-md-10">
+                            <!--位置調整用-->
+                        </div>
+                        <div class="col-md-2">
+                            <button type="button" onclick="action_regist();"
+                                class="btn btn-primary btn-block">新規登録</button>
+                        </div>
+                    </div>
+                    <!--入力フォーム-->
+                    <div class="form-group">
+                        <label>タイトル：</label>
+                        <input type="text" id="task_title" name="task_title" class="form-control" value="タイトルを入力">
+                    </div>
+                    <br>
+                    <div class="row justify-content-start">
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <label>担当者：</label>
+                                <input type="text" id="task_tant" name="task_tant" class="form-control"
+                                    placeholder="担当者">
+                            </div>
+                        </div>
+                        <div class="col-md-1">
+                            <!--位置調整用-->
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label>期限：</label>
+                                <input type="date" id="task_kign" name="task_kign" class="form-control"
+                                    value="{{today}}">
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label>ステータス：</label>
+                                <input type="text" id="task_status" name="task_status" class="form-control" value="起票">
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label>課題詳細：</label>
+                        <textarea class="form-control" id="task_detail" name="task_detail" rows="5"
+                            placeholder="課題の詳細内容を入力してください"></textarea>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label>対応内容：</label>
+                        <textarea class="form-control" id="task_log" name="task_log" rows="15"
+                            placeholder="対応内容を入力してください"></textarea>
+                    </div>
+                    <br>
+                    <div class="row justify-content-start">
+                        <div class="col-md-8">
+                            <!--位置調整用-->
+                        </div>
+                        <div class="col-md-2">
+                            <button type="button" onclick="action_regist();"
+                                class="btn btn-primary btn-block">新規登録</button>
+                        </div>
+                        <div class="col-md-2">
+                            <button type="button" class="btn btn-muted btn-block" onclick="action_ichiran();">
+                                閉じる
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="p-3 mb-2 bg-light text-dark">
+                <h6>★今日の一押し★</h6>
+                <div class="video">
+                    <!-- <label>どこまでいってもにげてやる</label> -->
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/UKESIh9fEfA"
+                        title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+                </body>
+            </div>
+        </div>
+    </div>
+
+    <br>
+</div>
+
+<!--旧コード==============================================================================================================-->
+<!--
                     <table border="0"  cellspacing="5" cellpadding="5" bordercolor="#333333">
                         <tr>
                             <td align="left">
@@ -89,108 +187,10 @@
                             </td>
                         </tr>
                     </table>
-                </form>
-            </td>
-    <!--広告エリア==============================================================================================================-->
-    <script>
-        function goto_ad_01(){
-            window.open('https://db.netkeiba.com/horse/2002100816/', '_blank'); 
-        }
-        function goto_ad_02(){
-            window.open('https://db.netkeiba.com/horse/2004104258/', '_blank'); 
-        }
-        function goto_ad_03(){
-            window.open('https://db.netkeiba.com/horse/1985104409/', '_blank'); 
-        }
-        function goto_ad_04(){
-            window.open('https://db.netkeiba.com/horse/1993109219/', '_blank'); 
-        }
-        function goto_ad_05(){
-            window.open('https://db.netkeiba.com/horse/1983109008/', '_blank'); 
-        }
-        function goto_ad_06(){
-            window.open('https://db.netkeiba.com/horse/1981107017/', '_blank'); 
-        }
-        function goto_ad_07(){
-            window.open('https://db.netkeiba.com/horse/1996100292/', '_blank'); 
-        }
-        function goto_netkeiba_orfevre(){
-            window.open('https://db.netkeiba.com/horse/2008102636/', '_blank'); 
-        }
-    </script>
-            <td align="right" valign="top">
-                <input type="image" 
-                    src="{% static '/images/advertisement/deep_01.jpg' %}"
-                    onmouseover='src="{% static '/images/advertisement/deep_02.jpg' %}"'  
-                    onmouseout='src="{% static '/images/advertisement/deep_03.jpg' %}"'  
-                    value="ディープインパクト" 
-                    onclick="goto_ad_01();" 
-                    width="320" height="180"
-                >
-                <br>
-                <input type="image" 
-                    src="{% static '/images/advertisement/vodka_01.jpg' %}"
-                    onmouseover='src="{% static '/images/advertisement/vodka_02.jpg' %}"'  
-                    onmouseout='src="{% static '/images/advertisement/vodka_03.jpg' %}"'  
-                    value="ウォッカ" 
-                    onclick="goto_ad_02();" 
-                    width="320" height="180"
-                >
-                <br>
-                <input type="image" 
-                    src="{% static '/images/advertisement/supercreek_01.jpg' %}"
-                    onmouseover='src="{% static '/images/advertisement/supercreek_02.jpg' %}"'  
-                    onmouseout='src="{% static '/images/advertisement/supercreek_03.jpg' %}"'  
-                    value="スーパークリーク" 
-                    onclick="goto_ad_03();" 
-                    width="320" height="180"
-                >
-                <br>
-                <input type="image" 
-                    src="{% static '/images/advertisement/bubble_01.jpg' %}"
-                    onmouseover='src="{% static '/images/advertisement/bubble_02.jpg' %}"'  
-                    onmouseout='src="{% static '/images/advertisement/bubble_03.jpg' %}"'   
-                    value="バブルガムフェロー" 
-                    onclick="goto_ad_04();" 
-                    width="320" height="180"
-                >
-                <br>
-                <input type="image" 
-                    src="{% static '/images/advertisement/horlicks_01.jpg' %}"
-                    onmouseover='src="{% static '/images/advertisement/horlicks_02.jpg' %}"'  
-                    onmouseout='src="{% static '/images/advertisement/horlicks_03.jpg' %}"'
-                    value="ホーリックス" 
-                    onclick="goto_ad_05();" 
-                    width="320" height="180"
-                >
-                <br>
-                <input type="image" 
-                    src="{% static '/images/advertisement/rudolf_01.jpg' %}"
-                    onmouseover='src="{% static '/images/advertisement/rudolf_02.jpg' %}"'  
-                    onmouseout='src="{% static '/images/advertisement/rudolf_03.jpg' %}"'  
-                    value="シンボリルドルフ" 
-                    onclick="goto_ad_06();" 
-                    width="320" height="180"
-                >
-                <br>
-                <input type="image" 
-                    src="{% static '/images/advertisement/tmopera_01.jpg' %}"
-                    onmouseover='src="{% static '/images/advertisement/tmopera_02.jpg' %}"'  
-                    onmouseout='src="{% static '/images/advertisement/tmopera_03.jpg' %}"'  
-                    value="テイエムオペラオー" 
-                    onclick="goto_ad_07();" 
-                    width="320" height="180"
-                >
-                <br>
-                <input type="image" 
-                    src="{% static '/images/advertisement/orfavre_01.png' %}"
-                    onmouseover='src="{% static '/images/advertisement/orfavre_01.png' %}"'  
-                    onmouseout='src="{% static '/images/advertisement/orfavre_01.png' %}"'  
-                    value="オルフェーブル" 
-                    onclick="goto_netkeiba_orfevre();" 
-                    width="50" height="2"
-                >
-            </td>
+                    -->
+<!--旧コード==============================================================================================================-->
+</form>
+<!-- </td>
         </tr>
-    </table>
+    </table> -->
 {% endblock content %}

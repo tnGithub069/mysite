@@ -151,61 +151,6 @@ header {
   background-color : rgba(60, 96, 163, 0.2);
 }
 */
-.headline{
-  font-size: 32px;
-}
-
-/* テーブルヘッダー */
-.table_hedder {
-  background-color : rgba(60, 96, 163, 0.2);
-  border: solid 1px #3333;
-  color : black;  /* 白 */
-}
-
-/* テーブルレイアウト */
-.table_layout {
-  border-collapse: collapse;
-  padding: "0";
-  border: solid 1px #3333;
-  word-break: break-word;
-  /*実線 1px グレー*/
-}
-
-/* 行レイアウト */
-.th_layout {
-  border-collapse: collapse;
-  border: solid 1px #3333;
-  /*実線 1px グレー*/
-}
-
-/* 行レイアウト */
-.tr_layout {
-  border-collapse: collapse;
-  border: solid 1px #3333;
-  /*実線 1px グレー*/
-}
-
-/* セルレイアウト */
-.td_layout {
-  border-collapse: collapse;
-  border: solid 1px #3333;
-  /*実線 1px グレー*/
-}
-
-/* 罫線 */
-.border {
-  color : #3333;/* 薄いグレー */
-}
-
-/* 罫線 */
-.border_white {
-  color : white;/* 白 */
-}
-
-/* メッセージ */
-.message {
-  color : rgba(219, 7, 7, 0.753);/* 赤 */
-}
 
 /* jumbotron */
 header.jumbotron2 {
@@ -213,4 +158,85 @@ header.jumbotron2 {
   background-position: center center;
   background-size: cover;
   color: #fff;
+}
+
+
+
+.fm1 {
+  position:relative;
+  max-width:800px;	
+  margin-bottom:20px;
+}
+.bx1 {
+  height:50px;
+  width:550px;
+  padding:0 10px; 
+  border: 2px solid rgb(189, 196, 189); 
+  position:absolute; 
+  left:0;
+  top:0; 
+  /* border-radius:25px; */
+  outline:0;
+  background:#eee;	
+}
+.bx2 {
+  height:550px;
+  width:550px;
+  padding:0 10px; 
+  border: 2px solid rgb(189, 196, 189); 
+  position:absolute; 
+  left:0;
+  top:0; 
+  /* border-radius:25px; */
+  outline:0;
+  background:#eee;	
+}
+
+.btn1 {
+  height:50px;
+  width:50px;
+  position:relative; 
+  left:560px;/*アイコン左右の位置調整*/
+  top:0;
+  border: 2px solid rgb(189, 196, 189); 
+  color:#666;
+  font-size:20px;/*アイコンサイズ*/
+}
+.btn1 .fa-search {
+  font-size:20px;	
+  position:absolute;
+  top:30%;
+  left:30%;	
+}
+.btn1:hover {
+  color:#7fbfff;
+}
+
+.col-sm-6 {
+  width:100%;
+}
+
+.video {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%;
+}
+
+.video iframe {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.content {
+  background-image: url("/static/images/jra.png");
+  background-color:rgba(255,255,255,0.8);
+  background-blend-mode:lighten;
+}
+
+.non_margen {
+  margin-top: 0;
+  margin-bottom:0;
 }
