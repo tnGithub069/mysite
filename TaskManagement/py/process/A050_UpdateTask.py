@@ -56,13 +56,13 @@ def flw(request,list_msg):
     #表示処理------------------------------------------------------
     #(3)更新後の値を取得する
     json_service_S003 = S003_SelectTask.main(task_id)
-    list_one_task = json_service_S003["list_one_task"]
+    one_task = json_service_S003["one_task"]
     flw_errFlg = json_service_S003["flg_result"]
     #(4)表示期限を取得
-    hyoji_kigen = list_one_task[0].task_kign
+    hyoji_kigen = one_task.task_kign
     hyoji_kigen = format(hyoji_kigen, '%Y-%m-%d')
     #(5)コンテキストを作成
-    context = {'list_one_task': list_one_task,
+    context = {'task': one_task,
                 'hyoji_kigen': hyoji_kigen,
                 }
     #検証--------------------------------------------------------------------

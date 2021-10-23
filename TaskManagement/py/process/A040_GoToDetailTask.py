@@ -32,10 +32,10 @@ def flw(request,list_msg,task_id):
     #サービスの呼び出し
     #表示処理------------------------------------------------------
     json_service = S003_SelectTask.main(task_id)
-    list_one_task = json_service["list_one_task"]
-    hyoji_kigen = list_one_task[0].task_kign
+    one_task = json_service["one_task"]
+    hyoji_kigen = one_task.task_kign
     hyoji_kigen = format(hyoji_kigen, '%Y-%m-%d')
-    context = {'list_one_task': list_one_task,
+    context = {'task': one_task,
                 'hyoji_kigen': hyoji_kigen,
                 }
     json_flw = {'flw_errFlg':flw_errFlg,'context':context}

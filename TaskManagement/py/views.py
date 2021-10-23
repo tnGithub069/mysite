@@ -147,6 +147,15 @@ def delete_task(request):
     #返却
     return render(request, template, context)
 
+
+    #テスト01
+def test01(request):
+    #メッセージリストを宣言
+    template = "TaskManagement/test01.html"
+    context = {}
+    #返却
+    return render(request, template, context) 
+
 #===============================================================================================================
 #オルフェーブル
 def olfe(request, question_id):
