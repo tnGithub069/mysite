@@ -151,10 +151,11 @@ def delete_task(request):
 
     #テスト01
 def test01(request):
-    list_newsInfo = S006_GetKeibaNews.main(0)
+    #list_newsInfo = S006_GetKeibaNews.main(0)
     #メッセージリストを宣言
     template = "TaskManagement/test01.html"
-    context = {"list_newsInfo":list_newsInfo}
+    #context = {"list_newsInfo":list_newsInfo}
+    context = {}
     #返却
     return render(request, template, context) 
 
