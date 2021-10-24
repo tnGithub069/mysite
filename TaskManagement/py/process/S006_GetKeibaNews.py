@@ -43,11 +43,11 @@ d1=''.join(vals)
 print(d1)
 """
 #=============================================================
-def main_bk(maxNo):
+def main(maxNo):
     list_news_Info = []
     return list_news_Info
 
-def main(maxNo):
+def main_bk(maxNo):
     #====井上のサイト=============================================================
     #サイトのURLを指定してリクエストを取得する
     rq = requests.get("https://inoshunnomad.com/")
