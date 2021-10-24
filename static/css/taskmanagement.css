@@ -245,6 +245,7 @@ header.jumbotron2 {
   margin-bottom:1;
 }
 
+/** 競馬ニュースcss ---------------------------------------------------**/
 .tm_bg_newsArea{
   background-image: url("/static/images/jra.png");
   color:rgb(5, 58, 5);
@@ -260,3 +261,4 @@ header.jumbotron2 {
 .tm_bg_newsInfo{
   background-color:rgb(225, 243, 225);
 }
+/** 競馬ニュースcss ---------------------------------------------------**/

@@ -33,7 +33,9 @@
     function action_add_task() {
       location.href = "https://www.nishishi.com/css/boxdesign-for-text-input-form.html#boxdesign-for-text-input2";
     }
+    
     function action_openTaskManagement() {
+      //井上的に、「_blanck」はセキュリティ的にNGらしい
       window.open('https://tnroot01.pythonanywhere.com/TaskManagement/', '_blank');
     }
   </script>
@@ -124,6 +126,7 @@
               <a class="nav-link" href="{% url 'TaskManagement:test01'%}">テスト01</a>
             </li>
             <li class="nav-item">
+              <!-- 井上的に、「_blanck」はセキュリティ的にNGらしい -->
               <a class="nav-link" href="https://tnroot01.pythonanywhere.com/TaskManagement/" target="_blank">課題管理</a>
             </li>
           </ul>

@@ -53,7 +53,7 @@
                     <th scope="row">{{ task.id }}</th>
                     <td>{{ task.task_kihyb | date:"y/m/d" }}</td>
                     <td>{{ task.task_kign | date:"y/m/d" }}</td>
-                    <td>{{ task.task_title }}</td>
+                    <td><a href="{% url 'TaskManagement:detail_task' task.id %}">{{ task.task_title }}</a></td>
                     <td>{{ task.task_tant }}</td>
                     <td>{{ task.task_status }}</td>
                 </tr>
