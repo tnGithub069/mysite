@@ -1,0 +1,70 @@
+{% extends "TaskManagement/base.html" %}
+{% block head %}
+{% load static %}
+<link rel="stylesheet" href="{% static '/css/taskmanagement.css' %}">
+<script>
+    function action_add_task() {
+        location.href = "{% url 'TaskManagement:goto_regist_task'%}";
+    }
+    function action_goto_detail_task() {
+    }
+</script>
+{% endblock head %}
+{% block header %}
+<h1>課題表</h1>
+{% endblock header %}
+{% block content %}
+
+<br>
+<!-- メッセージエリアここから -->
+<div class="container">
+    {% if messages %}
+    <div class="row">
+        {% for message in messages %}
+    </div>
+    <div class="col-sm-12">
+        <br>
+        <div class="alert alert-info" role="alert">{{ message }}</div>
+    </div>
+</div>
+{% endfor %}
+</div>
+{% endif %}
+</div>
+<!-- メッセージエリアここまで -->
+<!-- テーブルエリア -->
+<div class="container">
+    <div class="table-responsive">
+        {% if all_task_list %}
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>起票日</th>
+                    <th>期限日</th>
+                    <th>課題タイトル</th>
+                    <th>担当</th>
+                    <th>状態</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for task in all_task_list %}
+                <tr>
+                    <th scope="row">{{ task.id }}</th>
+                    <td>{{ task.task_kihyb | date:"y/m/d" }}</td>
+                    <td>{{ task.task_kign | date:"y/m/d" }}</td>
+                    <td>{{ task.task_title }}</td>
+                    <td>{{ task.task_tant }}</td>
+                    <td>{{ task.task_status }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% endif %}
+    </div>
+</div>
+<!-- テーブルエリア -->
+
+<br>
+<br>
+{% endblock content %}
