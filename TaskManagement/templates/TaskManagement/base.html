@@ -108,6 +108,9 @@
               <a class="nav-link" href="{% url 'TaskManagement:index' %}">課題一覧</a>
             </li>
             <li class="nav-item">
+              <a class="nav-link" href="{% url 'TaskManagement:taskTable'%}">課題表</a>
+            </li>
+            <li class="nav-item">
               <a class="nav-link" href="{% url 'TaskManagement:goto_regist_task'%}">課題作成</a>
             </li>
             <li class="nav-item">
@@ -121,7 +124,7 @@
               <a class="nav-link" href="{% url 'TaskManagement:test01'%}">テスト01</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" onclick="action_openTaskManagement();">課題管理</a>
+              <a class="nav-link" href="https://tnroot01.pythonanywhere.com/TaskManagement/" target="_blank">課題管理</a>
             </li>
           </ul>
         </div>
@@ -196,6 +199,7 @@
           </button>
           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
             <a class="dropdown-item" href="{% url 'TaskManagement:index' %}">課題一覧</a>
+            <a class="dropdown-item" href="{% url 'TaskManagement:taskTable'%}">課題表</a>
             <a class="dropdown-item" href="{% url 'TaskManagement:goto_regist_task'%}">課題作成</a>
           </div>
         </div>

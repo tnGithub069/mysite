@@ -17,7 +17,7 @@ from .process import (
     A040_GoToDetailTask,
     A050_UpdateTask,
     A060_DeleteTask,
-    S006_GetKeibaNews
+    A070_IchiranTable
 )
 from .process import C010_Const
 
@@ -133,6 +133,30 @@ def regist_task(request):
         # user hits the Back button.
         return render(request, 'TaskManagement/regist_task.html')
     """
+
+def taskTable(request):
+    #try:
+    #ビュープロセスクラスを呼び出し
+    json_view = A070_IchiranTable.main(request)
+    #「render」か「redirect」かを判断
+    flg_return = json_view["flg_return"]
+    if flg_return == "0":
+        #「render」の場合
+        context = json_view["context"]
+        template = json_view["template"]
+        return render(request, template, context)
+    elif flg_return == "1":
+        #「redirect」の場合
+        path_name = json_view["path_name"]
+        return redirect(path_name)
+    """
+    except Exception as e :
+        #システムエラー共通処理
+        C030_MessageUtil.systemErrorCommonMethod()
+        #システムエラー画面に遷移
+        return redirect(ERR_PATH_NAME)
+    """
+
 
     #タスク削除（論理削除）
 def delete_task(request):

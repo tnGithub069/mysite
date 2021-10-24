@@ -31,6 +31,7 @@ urlpatterns = [
     path('detail_task/<int:task_id>/', views.goto_detail_task, name='detail_task'),
     path('update_task/', views.update_task, name='update_task'),
     path('delete_task/', views.delete_task, name='delete_task'),
+    path('taskTable/', views.taskTable, name='taskTable'),
     path('test01/', views.test01, name='test01'),
     #AE 20210928
 ] + static (settings.STATIC_URL, document_root=settings.STATIC_ROOT)
